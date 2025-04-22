@@ -6,26 +6,27 @@ import jakarta.persistence.*;
 @Table(name = "identity_cards")
 public class IdentityCard {
     /*
-    cid_number VARCHAR(13) ,
-    born_date date,
-    address VARCHAR(60),
-    cid VARCHAR(4),
+        cid_number VARCHAR(13) ,
+        born_date date,
+        address VARCHAR(60),
+        cid VARCHAR(4),
     */
     @Id
-    private String cidNumber;
-    private String bornDate;
+    private String identity;
+    private String born;
     private String address;
-    @OneToOne(cascade = CascadeType.ALL)
+
     // the @JoinColumn annotation to configure the name of the column in the identity_cards table
     // that maps to the primary key in the customers table.
     // Note in the next entity that we won’t use the @JoinColumn annotation there.
     // Because we only need it on the owning side of the foreign key relationship.
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cid", referencedColumnName = "cid")
     private Customer customer;
 
-    public IdentityCard(String cidNumber, String bornDate, String address, Customer customer) {
-        this.cidNumber = cidNumber;
-        this.bornDate = bornDate;
+    public IdentityCard(String identity, String born, String address, Customer customer) {
+        this.identity = identity;
+        this.born = born;
         this.address = address;
         this.customer = customer;
     }
@@ -33,20 +34,20 @@ public class IdentityCard {
     public IdentityCard() {
     }
 
-    public String getCidNumber() {
-        return cidNumber;
+    public String getIdentity() {
+        return identity;
     }
 
-    public void setCidNumber(String cidNumber) {
-        this.cidNumber = cidNumber;
+    public void setIdentity(String identity) {
+        this.identity = identity;
     }
 
-    public String getBornDate() {
-        return bornDate;
+    public String getBorn() {
+        return born;
     }
 
-    public void setBornDate(String bornDate) {
-        this.bornDate = bornDate;
+    public void setBorn(String bornDate) {
+        this.born = bornDate;
     }
 
     public String getAddress() {
@@ -68,8 +69,8 @@ public class IdentityCard {
     @Override
     public String toString() {
         return "IdentityCard{" +
-                "cidNumber='" + cidNumber + '\'' +
-                ", bornDate='" + bornDate + '\'' +
+                "identity='" + identity + '\'' +
+                ", born='" + born + '\'' +
                 ", address='" + address + '\'' +
                 ", customer=" + customer +
                 '}';

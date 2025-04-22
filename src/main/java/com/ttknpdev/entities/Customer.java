@@ -15,10 +15,13 @@ public class Customer {
     private String firstname;
     private String lastname;
 
-    // @OneToOne(mappedBy = "customer") // *** it mapped to private Customer <customer>; clear!!
-    // @JsonIgnore // you have to choose some One entity. which entity you will use @OneToOne ?
-    // private IdentityCard identityCard;
-
+    /**
+       *** it mapped to private Customer <customer>; clear!!
+       *** you have to choose some One entity! which entity you will use @OneToOne ?
+       @OneToOne(mappedBy = "customer")
+       @JsonIgnore
+       private IdentityCard identityCard;
+    */
     public Customer(String cid, String firstname, String lastname) {
         this.cid = cid;
         this.firstname = firstname;

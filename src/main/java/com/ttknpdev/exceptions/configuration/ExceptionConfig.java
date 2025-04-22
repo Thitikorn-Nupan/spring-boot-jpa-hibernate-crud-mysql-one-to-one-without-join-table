@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionConfig {
 
-    /*
+    /**
         remember it will work after you throw it
         Like. return ... orElseThrow(throw new NotAllowed("There is not exist"))
         Just throw your handler will be enough

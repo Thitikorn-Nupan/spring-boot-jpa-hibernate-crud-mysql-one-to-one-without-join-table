@@ -16,8 +16,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/customer")
 public class RouterCustomerControl {
-    private CustomerService customerService;
-    private MyLog4j myLog4j;
+    private final CustomerService customerService;
+    private final MyLog4j myLog4j;
     @Autowired
     public RouterCustomerControl(CustomerService customerService) {
         this.customerService = customerService;

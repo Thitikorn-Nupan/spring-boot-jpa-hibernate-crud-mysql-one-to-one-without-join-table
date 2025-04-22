@@ -13,11 +13,14 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/identity-card")
 public class RouterIdentityCardControl {
-    private IdentityCardService identityCardService;
+
+    private final IdentityCardService identityCardService;
+
     @Autowired
     public RouterIdentityCardControl(IdentityCardService identityCardService) {
         this.identityCardService = identityCardService;
     }
+
     @GetMapping(value = "/reads")
     private ResponseEntity<ResponseObject> reads() {
         return ResponseEntity.ofNullable(ResponseObject.<List<IdentityCard>>builder()
